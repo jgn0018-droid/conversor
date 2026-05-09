@@ -7,7 +7,7 @@
     <style>
         body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background-color: #f4f4f9; }
         .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        input, select, button { margin: 10px 0; padding: 10px; width: 100%; box-sizing: border-box; }
+        input, select, button { background-color: #4CAF50; color: white; border: none; cursor: pointer;}
     </style>
 </head>
 <body>
@@ -15,11 +15,11 @@
 <div class="card">
     <h2>Conversor de Longitud</h2>
     
-    <!-- Entrada de valor -->
+    <!-- Value Input -->
     <label for="inputValue">Introduce el valor:</label>
     <input type="number" id="inputValue" placeholder="Ej: 100">
 
-    <!-- Selección de conversión -->
+    <!-- Conversion selection -->
     <label for="unitType">Selecciona la conversión:</label>
     <select id="unitType">
         <option value="mtf">Metros a Pies</option>
@@ -35,16 +35,16 @@
 
 <script>
     /**
-     * Función principal de conversión.
-     * Esta lógica fue asistida por IA para asegurar precisión.
+     * Main conversion function.
+     * This logic was assisted by AI to ensure accuracy.
      */
     function convert() {
-        // Obtenemos los valores de los inputs
+        // We obtain the values ​​of the inputs
         const val = parseFloat(document.getElementById('inputValue').value);
         const type = document.getElementById('unitType').value;
         const resultElement = document.getElementById('resultText');
 
-        // Validación: Si no es un número, avisamos al usuario
+        // Validation: If it's not a number, we notify the user
         if (isNaN(val)) {
             resultElement.innerText = "Por favor, introduce un número válido.";
             return;
@@ -53,7 +53,7 @@
         let result = 0;
         let unit = "";
 
-        // Lógica de conversión según la opción seleccionada
+        // Conversion logic based on the selected option
         switch (type) {
             case "mtf": // Metros a Pies (1m = 3.28084ft)
                 result = val * 3.28084;
@@ -73,7 +73,7 @@
                 break;
         }
 
-        // Mostramos el resultado redondeado a 2 decimales
+        // We show the result rounded to 2 decimal places
         resultElement.innerText = `Resultado: ${result.toFixed(2)} ${unit}`;
     }
 </script>
